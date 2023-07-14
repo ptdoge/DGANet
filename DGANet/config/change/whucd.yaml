@@ -1,0 +1,40 @@
+DATA:
+  data_root: #
+  train_list: ./lib/core/WHU-CD/train.txt
+  val_list: ./lib/core/WHU-CD/val.txt
+  test_list: ./lib/core/WHU-CD/test.txt
+  classes: 2
+  model_name: resnet18
+
+TRAIN:
+  dataset: change
+  loss: bcl-contrast
+  optimizer: Adam
+  train_h: 256
+  train_w: 256
+  ignore_label: 255
+  train_gpu: [0]
+  workers: 8 # data loader workers
+  batch_size: 8  # batch size for training
+  batch_size_val: 8 # batch size for validation during training, memory and speed tradeoff
+  epochs: 200
+  start_epoch: 0
+  manual_seed: 7
+  print_freq: 500
+  save_freq: 1
+  save_path: ./checkpoint/WHU-CD
+  weight: ./checkpoint/WHU-CD/model_best.pth # exp/change/linknet34/model/model_best.pth
+  resume: # /data2/ptdoge2/CDrepo/WHU-CD/OWN/BCL-Contrastv1/train_epoch_67.pth # path to latest checkpoint (default: none)
+  valuate: True  # evaluate on validation set, extra gpu memory needed and small batch_size_val is recommend
+  lr_step: 0.5
+  milestones: [40,80,120,160,200]
+  episode: 8
+  threshold: 2.0
+
+TEST:
+  split: test  # split in [train, val and test]
+  val_h: 256
+  val_w: 256
+  has_prediction: False
+  save_folder: ./pred/WHU-CD # results save folder
+  batch_size_test: 8
