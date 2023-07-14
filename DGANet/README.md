@@ -7,7 +7,7 @@ This repository provides the code for the method in our paper '**Difference-Guid
 ## Inference
 
 You can download the weights of the models presented in our paper. Please refer to our original paper for more details.
-After downloading the models, you can put it in 'checkpoint'. [Link](https://pan.baidu.com/s/1YogM0IU-_HbYqTuldwGtwg?pwd=5xs3) 
+After downloading the models, you can put them in 'checkpoint'. [Link](https://pan.baidu.com/s/1YogM0IU-_HbYqTuldwGtwg?pwd=5xs3) 
 
 ## Citation
 If this code is helpful for your research, please cite our paper:
