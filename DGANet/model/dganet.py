@@ -37,8 +37,6 @@ class Backbone(nn.Module, KaimingInitMixin):
 
     def forward(self, x):
         # x 3 256 256
-        # import pdb
-        # pdb.set_trace()
         x = self.resnet.conv1(x)
         x = self.resnet.bn1(x)
         x = self.resnet.relu(x)
