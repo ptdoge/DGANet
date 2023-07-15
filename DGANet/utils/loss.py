@@ -29,8 +29,8 @@ class BCL(nn.Module):
         mask = (label != 255).float()
         distance = distance * mask
 
-        pos_num = torch.sum((label == 1).float()) + 0.0001  # 未变化
-        neg_num = torch.sum((label == -1).float()) + 0.0001  # 变化
+        pos_num = torch.sum((label == 1).float()) + 0.0001  #
+        neg_num = torch.sum((label == -1).float()) + 0.0001  #
 
         loss_1 = torch.sum((1 + label) / 2 * torch.pow(distance, 2)) / pos_num
         loss_2 = torch.sum((1 - label) / 2 * torch.pow(torch.clamp(self.margin - distance, min=0.0), 2)) / neg_num
