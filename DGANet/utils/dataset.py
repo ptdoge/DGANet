@@ -67,7 +67,7 @@ def __crop(img, pos, size):
 def get_transform(convert=True, normalize=False, crop=True, pos=None, size=256):
     transform_list = []
     if crop:
-        transform_list.append(transforms.Lambda(lambda img: __crop(img, pos, size)))  # 注意修改 256 128
+        transform_list.append(transforms.Lambda(lambda img: __crop(img, pos, size)))  #
     if convert:
         transform_list += [transforms.ToTensor()]
     if normalize:
